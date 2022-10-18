@@ -1,6 +1,7 @@
 package br.com.ntconsult.locadora.dto;
 
 import br.com.ntconsult.locadora.model.MoviesModel;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDate;
@@ -9,6 +10,7 @@ import java.util.Optional;
 public class RentMovieDto {
 
     private String name;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate devolveDate;
 
     public RentMovieDto() {
