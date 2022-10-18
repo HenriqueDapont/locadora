@@ -43,7 +43,7 @@ public class RentMoviesService {
             builder.addError(null, "Todas as cópias do filme estão alugadas");
             return builder.get();
         }
-        var moviesModel = RentMovieDto.transform(modelOptional);
+        var moviesModel = RentMovieDto.transform(modelOptional, dto);
         moviesRepository.save(moviesModel);
         return new BaseDtoSuccessBuilder<>("Filme alugado com sucesso até " + moviesModel.getDevolveDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")), HttpStatus.OK).get();
     }
